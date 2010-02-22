@@ -1,0 +1,18 @@
+JAVA_CLASSPATH="bcel.jar:jakarta-regexp.jar:java-cup.jar:xercesImpl.jar:xml-apis.jar"
+ORIG_PN="xalan-j"
+inherit ant
+
+
+HOMEPAGE="http://xml.apache.org/xalan-j/"
+SRC_URI="mirror://apache/xml/${ORIG_PN}/${ORIG_PN}_${PV//./_}-src.tar.gz"
+SRC_DIR="${ORIG_PN}_${PV//./_}"
+
+DISTCLEANFILES="lib/*.jar tools/*.jar"
+
+ANT_BUILD_ARGS="
+	-Dxsltc.bcel_jar.not_needed=true
+	-Dxsltc.runtime_jar.not_needed=true
+	-Dxsltc.regexp_jar.not_needed=true
+"
+ANT_BUILD_TARGETS="jar javadocs"
+ANT_INSTALL_JARS="build/*.jar"
