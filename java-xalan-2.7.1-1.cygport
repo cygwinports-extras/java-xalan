@@ -2,12 +2,13 @@ JAVA_CLASSPATH="bcel.jar:jakarta-regexp.jar:java-cup.jar:xercesImpl.jar:xml-apis
 ORIG_PN="xalan-j"
 inherit ant
 
-
+DESCRIPTION="Java XSL-T processor"
 HOMEPAGE="http://xml.apache.org/xalan-j/"
 SRC_URI="mirror://apache/xml/${ORIG_PN}/${ORIG_PN}_${PV//./_}-src.tar.gz"
 SRC_DIR="${ORIG_PN}_${PV//./_}"
 
 DISTCLEANFILES="lib/*.jar tools/*.jar"
+DIFF_EXCLUDES="DONE XSLTCDONE"
 
 ANT_BUILD_ARGS="
 	-Dxsltc.bcel_jar.not_needed=true
@@ -16,3 +17,4 @@ ANT_BUILD_ARGS="
 "
 ANT_BUILD_TARGETS="jar javadocs"
 ANT_INSTALL_JARS="build/*.jar"
+ANT_INSTALL_JAVADOC="build/docs/apidocs"
